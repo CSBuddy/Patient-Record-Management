@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<form action = "" method ="POST">
+        <input type ="text" name ="name"/>
+        <input type = "submit" value ="Search"/>
+    <fieldset>
+            <legend>Personal Information</legend>
+            {% csrf_token %}
+           
+            <h3>Name: {{name}}</h3>
+            <h3>Age: {{age}}</h3>
+            <h3>Mobile: {{mobile}}</h3>
+            <h3>Sex: {{sex}}</h3>
+            <h3>Address: {{address}}</h3>
+            <h3>Occupation: {{occupation}}</h3>
+          
+
+    </fieldset>
+  {% endblock %}
