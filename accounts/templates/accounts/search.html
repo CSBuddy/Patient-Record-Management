@@ -1,20 +1,46 @@
 {% extends 'index.html' %}
 {% block content %}
 
-<form action = "" method ="POST">
+<form action = "/patient/" method ="POST">
         <input type ="text" name ="name"/>
         <input type = "submit" value ="Search"/>
-    <fieldset>
-            <legend>Personal Information</legend>
-            {% csrf_token %}
-           
-            <h3>Name: {{name}}</h3>
-            <h3>Age: {{age}}</h3>
-            <h3>Mobile: {{mobile}}</h3>
-            <h3>Sex: {{sex}}</h3>
-            <h3>Address: {{address}}</h3>
-            <h3>Occupation: {{occupation}}</h3>
-          
 
-    </fieldset>
-  {% endblock %}
+        <fieldset>
+                <legend><h1>Personal Information</h1></legend>
+                {% csrf_token %}
+                <h3>Name: {{name}}</h3>
+                <h3>Age: {{age}}</h3>
+                <h3>Mobile: {{mobile}}</h3>
+                <h3>Sex: {{sex}}</h3>
+                <h3>Address: {{address}}</h3>
+                <h3>Occupation: {{occupation}}</h3>
+        </fieldset>
+
+        <fieldset>
+                <legend><h1>Pain History</h1></legend>
+                <h3>Contineous: {{contineous}}</h3>
+                <h3>Type: {{type}}</h3>
+                <h3>Aggravating: {{aggravating}}</h3>
+                <h3>Relieving: {{relieving}}</h3>
+                <h3>Duration: {{duration}}</h3>
+        </fieldset>
+
+        <fieldset>
+                <legend><h1>Present History</h1></legend>
+                <h3>Morning Stiffness: {{morning_stiffness}}</h3>
+                <h3>Numbness: {{numbness}}</h3>
+                <h3>Mechanical Injury: {{mechanical_injury}}</h3>
+                <h3>Mascular Weakness: {{mascular_weakness}}</h3>
+                <h3>Sleeping Disturbance: {{sleeping_disturbance}}</h3>
+                <h3>Mode Of Onset: {{mode_of_onset}}</h3>
+                <h3>Claudication: {{claudication}}</h3>
+        </fieldset>
+
+        <fieldset>
+                <legend><h1>Present Medical History</h1></legend>
+                <h3>Disease: {{disease}}</h3>
+                <h3>Recent Weight Loss: {{recent_wt_loss}}</h3>
+                <h3>Breathing Pattern: {{breathing_pattern}}</h3>
+                <h3>Heal Walking: {{heal_walking}}</h3>
+        </fieldset>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<form action = "/update/" method ="POST">
+    {% csrf_token %}
+    <input type ="text" name ="text"/>
+    <input type = "submit" value ="Update"/>
+    </form>
+
+{% endblock %}

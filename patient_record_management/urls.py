@@ -16,9 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from accounts.views import  patient_details_view
+from accounts.views import  add_patient
+from accounts.views import  update_patient
+from accounts.views import  delete_patient
 
 urlpatterns = [
     path('accounts/',include('accounts.urls')),
     path('admin/', admin.site.urls),
-    path('patient/', patient_details_view)
+    path('patient/', patient_details_view),
+    path('new/', add_patient),
+    path('update/', update_patient),
+    path('delete/', delete_patient)
 ]

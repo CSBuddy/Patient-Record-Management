@@ -21,21 +21,63 @@ def registerView(request):
     return render(request,'registration/register.html',{'form':form}) 
 
 def patient_details_view(request):
-    obj1 = Patient.objects.get(id=3)
+   
+    obj = Patient.objects.get(patient_id = 3)
   
     
     context ={
-        'name': obj1.name,
-        'age': obj1.age,
-        'mobile': obj1.mobile,
-        'sex': obj1.sex,
-        'address': obj1.address,
-        'occupation': obj1.occupation
+        'name': obj.name,
+        'age': obj.age,
+        'mobile': obj.mobile,
+        'sex': obj.sex,
+        'address': obj.address,
+        'occupation': obj.occupation,
 
+        'contineous': obj.contineous,
+        'type': obj.type,
+        'aggravating': obj.aggravating,
+        'relieving': obj.relieving,
+        'duration': obj.duration,
 
-   
-    }
+        'disease': obj.disease,
+        'recent_wt_loss': obj.recent_wt_loss,
+        'breathing_pattern': obj.breathing_pattern,
+        'heal_walking': obj.heal_walking,
+
+        'morning_stiffness': obj.morning_stiffness,
+        'numbness': obj.numbness,
+        'mechanical_injury': obj.mechanical_injury,
+        'mascular_weakness': obj.mascular_weakness,
+        'sleeping_disturbance': obj.sleeping_disturbance,
+        'mode_of_onset': obj.mode_of_onset,
+        'claudication': obj.claudication
+
+}
     return render(request,"accounts/search.html",context)
 
+def add_patient(request):
+  
+    name = request.POST.get("name")
+    age = request.POST.get("age")
+    mobile = request.POST.get("mobile")
+    sex = request.POST.get("sex")
+    address = request.POST.get("address")
+    occupation = request.POST.get("occupation")
+    Patient = Patient(name=name,age=age,mobile=mobile,sex=sex,address=address,occupation=occupation)
+
+   
+    Patient.save()
+
+    print("patient record saved sucessfully")
+
+    return render(request,"accounts/new.html")
+
+def update_patient(request):
 
 
+     return render(request,"accounts/update.html")
+
+def delete_patient(request):
+
+
+     return render(request,"accounts/delete.html")
