@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+{% block content %}
+<form action = "/new/" method ="POST">
+        <fieldset>
+            <legend><h1>Personal Information</h1></legend>
+            {% csrf_token %}
+            Name:<input type ="text" name ="name"/></br>
+            Age:<input type ="text" name ="age"/></br>
+            Mobile:<input type ="text" name ="mobile"/></br>
+            Sex:<input type ="text" name ="sex"/></br>
+            Address:<input type ="text" name ="address"/></br>
+            Occupation:<input type ="text" name ="occupation"/></br>
+    </fieldset>
+
+    <fieldset>
+            <legend><h1>Pain History</h1></legend>
+            Contineous:<input type ="text" name ="contineous"/></br>
+            Type:<input type ="text" name ="type"/></br>
+            Aggravating:<input type ="text" name ="aggravating"/></br>
+            Relieving:<input type ="text" name ="relieving"/></br>
+            Duration:<input type ="text" name ="duration"/></br>
+    </fieldset>
+
+    <fieldset>
+            <legend><h1>Present History</h1></legend>
+            Morning Stiffness:<input type ="text" name ="morning_stiffness"/></br>
+            Numbness:<input type ="text" name ="numbness"/></br>
+            Mechanical Injury:<input type ="text" name ="mechanical_injury"/></br>
+            Mascular Weakness:<input type ="text" name ="mascular_weakness"/></br>
+            Sleeping Disturbance:<input type ="text" name ="sleeping_disturbance"/></br>
+            Mode Of Onset:<input type ="text" name ="mode_of_onset"/></br>
+            Claudication:<input type ="text" name ="claudication"/></br>
+    </fieldset>
+
+    <fieldset>
+            <legend><h1>Present Medical History</h1></legend>
+            Disease:<input type ="text" name ="disease"/></br>
+            Recent Weight Loss:<input type ="text" name ="recent_wt_loss"/></br>
+            Breathing Pattern:<input type ="text" name ="breathing_pattern"/></br>
+            Heal Walking:<input type ="text" name ="heal_walking"/></br>
+    </fieldset>
+    <input type = "submit" value ="Save"/>
+</form>
+{% endblock %}
