@@ -4,7 +4,7 @@ from django.db import models
 
 class Patient(models.Model):
     patient_id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, blank=True, null=True)
     age = models.IntegerField()
     mobile = models.BigIntegerField()
     sex = models.CharField(max_length=6)
@@ -31,5 +31,5 @@ class Patient(models.Model):
     claudication = models.CharField(max_length=50, blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'patient'
