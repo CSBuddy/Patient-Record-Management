@@ -1,8 +1,33 @@
 {% extends 'index.html' %}
 {% block content %}
+<head>
+<meta name="viewport" content="width=device-width,initial-scale = 1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<div class ="form-group">
 <form action = "/new/" method ="POST">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/new/">New</a>
+                    </li>
+            
+                    <li class="nav-item">
+                        <a class="nav-link" href="/patient/">Search</a>
+                    </li>
+            
+                    <li class="nav-item">
+                        <a class="nav-link" href="/update/">Update</a>
+                    </li>
+            
+                    <li class="nav-item">
+                        <a class="nav-link" href="/delete/">Delete</a>
+                    </li>
+                </ul>
+            </nav>
+
         <fieldset>
-            <legend><h1>Personal Information</h1></legend>
+            <legend><h1 id="header-field"><span class="badge badge-success">Personal Information</span></h1></legend>
             {% csrf_token %}
             Name:<input type ="text" name ="name"/></br>
             Age:<input type ="text" name ="age"/></br>
@@ -13,7 +38,7 @@
     </fieldset>
 
     <fieldset>
-            <legend><h1>Pain History</h1></legend>
+            <legend><h1><span class="badge badge-danger">Pain History</span></h1></legend>
             Contineous:<input type ="text" name ="contineous"/></br>
             Type:<input type ="text" name ="type"/></br>
             Aggravating:<input type ="text" name ="aggravating"/></br>
@@ -22,7 +47,7 @@
     </fieldset>
 
     <fieldset>
-            <legend><h1>Present History</h1></legend>
+            <legend><h1><span class="badge badge-info">Present History</span></h1></legend>
             Morning Stiffness:<input type ="text" name ="morning_stiffness"/></br>
             Numbness:<input type ="text" name ="numbness"/></br>
             Mechanical Injury:<input type ="text" name ="mechanical_injury"/></br>
@@ -33,12 +58,13 @@
     </fieldset>
 
     <fieldset>
-            <legend><h1>Present Medical History</h1></legend>
+            <legend><h1><span class="badge badge-warning">Present Medical History</span></h1></legend>
             Disease:<input type ="text" name ="disease"/></br>
             Recent Weight Loss:<input type ="text" name ="recent_wt_loss"/></br>
             Breathing Pattern:<input type ="text" name ="breathing_pattern"/></br>
             Heal Walking:<input type ="text" name ="heal_walking"/></br>
     </fieldset>
-    <input type = "submit" value ="Save"/>
+    <input type = "submit" value ="Save" class="btn btn-success">
 </form>
+</div>
 {% endblock %}

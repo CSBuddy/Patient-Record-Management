@@ -4,28 +4,25 @@ from django.contrib.auth.decorators import login_required
 from . models import Patient
 
 def indexView(request):
-    return render(request,'index.html')
+    return render(request, 'index.html')
 
 @login_required
 def dashboardView(request):
-    return render(request,'accounts/dashboard.html')
+    return render(request, 'accounts/dashboard.html')
 
 def registerView(request):
-    if request.method =='POST':
+    if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('login_url')
     else:
         form = UserCreationForm()
-    return render(request,'registration/register.html',{'form':form}) 
+    return render(request, 'registration/register.html', {'form':form}) 
 
 def patient_details_view(request):
-   
-    obj = Patient.objects.get(patient_id = 3)
-  
-    
-    context ={
+    obj = Patient.objects.get(name = 'saish mhatre')
+    context = {
         'name': obj.name,
         'age': obj.age,
         'mobile': obj.mobile,
@@ -51,33 +48,25 @@ def patient_details_view(request):
         'sleeping_disturbance': obj.sleeping_disturbance,
         'mode_of_onset': obj.mode_of_onset,
         'claudication': obj.claudication
-
-}
-    return render(request,"accounts/search.html",context)
+        }
+    return render(request, "accounts/search.html", context)
 
 def add_patient(request):
-  
     name = request.POST.get("name")
     age = request.POST.get("age")
     mobile = request.POST.get("mobile")
     sex = request.POST.get("sex")
     address = request.POST.get("address")
     occupation = request.POST.get("occupation")
-    Patient = Patient(name=name,age=age,mobile=mobile,sex=sex,address=address,occupation=occupation)
-
-   
-    Patient.save()
+    patient = Patient(name=name, age=age, mobile=mobile, sex=sex, address=address, occupation=occupation)
+    patient.save()
 
     print("patient record saved sucessfully")
 
-    return render(request,"accounts/new.html")
+    return render(request, "accounts/new.html")
 
 def update_patient(request):
-
-
-     return render(request,"accounts/update.html")
+    return render(request, "accounts/update.html")
 
 def delete_patient(request):
-
-
-     return render(request,"accounts/delete.html")
+    return render(request, "accounts/delete.html")
